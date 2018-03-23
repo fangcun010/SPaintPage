@@ -1,6 +1,6 @@
 //===============================================================================
-//ÀàÃû£ºSPaintPage(ÉùÃ÷ÎÄ¼ş)
-//×÷Õß£ºÈÎ½Ü
+//ç±»åï¼šSPaintPage(å£°æ˜æ–‡ä»¶)
+//ä½œè€…ï¼šæ–¹å¯¸
 //===============================================================================
 #ifndef _S_PAINTPAGE_H_
 #define _S_PAINTPAGE_H_
@@ -19,22 +19,22 @@ void DeleteBmp(SBMP SBmp);
 
 class SPaintPage
 {
-//Êı¾İ
+//æ•°æ®
 private:
 	int m_nPgW,m_nPgH;
 public:
 	HPEN m_hPen;
 	HBRUSH m_hBrush;
 	HFONT m_hFont;
-	HBITMAP m_hBmp;//Ò³Ãæ´æ´¢Î»Í¼
-	HDC m_hDC;//Ò³Ãæ»æÖÆDC
-	enum FontEffect{FE_THIN,FE_NORMAL,FE_BOLD};//×ÖÌåĞ§¹û£ºÊİÌå£¬Õı³££¬´ÖÌå
-//×Ó³ÌÊ½
+	HBITMAP m_hBmp;//é¡µé¢å­˜å‚¨ä½å›¾
+	HDC m_hDC;//é¡µé¢ç»˜åˆ¶DC
+	enum FontEffect{FE_THIN,FE_NORMAL,FE_BOLD};//å­—ä½“æ•ˆæœï¼šç˜¦ä½“ï¼Œæ­£å¸¸ï¼Œç²—ä½“
+//å­ç¨‹å¼
 public:
-	SPaintPage();//¹¹Ôìº¯Êı
+	SPaintPage();//æ„é€ å‡½æ•°
 	SPaintPage(int w,int h);
 	~SPaintPage();
-	//ÉèÖÃº¯Êı
+	//è®¾ç½®å‡½æ•°
 	void SetPage(int w,int h);
 	void SetPen(int nStyle,int nWidth,COLORREF cr);
 	void SetBrush(unsigned int nStyle,COLORREF cr,long Hatch);
@@ -43,7 +43,7 @@ public:
 	void SetTextColor(COLORREF cr);
 	void SetBkColor(COLORREF cr);
 	void SetBkMode(int nMode);
-	//»æÍ¼º¯Êı
+	//ç»˜å›¾å‡½æ•°
 	void TextOut(int x,int y,const char *str);
 	void SetPixel(int x,int y,COLORREF cr);
 	void FillRect(int x,int y,int w,int h,COLORREF cr);
@@ -51,14 +51,14 @@ public:
 	void LineTo(int x,int y);
 	void Rectangle(int x,int y,int w,int h);
 	void ShowPic(SBMP SBmp,int dx,int dy,int x,int y,int w,int h,COLORREF crTransparent,bool bTransparent);
-	//¸´ÖÆº¯Êı
+	//å¤åˆ¶å‡½æ•°
 	void CopyToDC(HDC hDC);
 	void CopyToDC(HDC hDC,int x,int y);
 	void CopyToDC(HDC hDC,int nDestX,int nDestY,int nWidth,int nHeight,int nSrcX,int nSrcY);
 	void CopyPage(SPaintPage &Pg);
 	void CopyPage(SPaintPage &Pg,int x,int y);
 	void CopyPage(SPaintPage &Pg,int nDestX,int nDestY,int nWidth,int nHeight,int nSrcX,int nSrcY);
-	//»ñÈ¡º¯Êı
+	//è·å–å‡½æ•°
 	HDC GetDC();
 	int GetWidth();
 	int GetHeight();
